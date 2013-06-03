@@ -22,7 +22,7 @@ while ($line = <$fh_log>) {
     $c++;
 }
 print "Loaded $c records.\n";
-
+$call = 'N9JCA';
 foreach my $rec (@{$log { $call }}) {
     print "$rec \n";
 }
@@ -31,5 +31,5 @@ foreach my $rec (@{$log { $call }}) {
 #    print "$key $value\n";
 #}
 #print Dumper(%log);
-print "(@{$log{ 'N9JCA' }, $qsoinfo)" . "\n";
+
 
