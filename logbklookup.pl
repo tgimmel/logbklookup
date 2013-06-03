@@ -16,15 +16,19 @@ while ($line = <$fh_log>) {
     #print "$date $time $call $band $mode \n";
     #Load the hash
     $qsoinfo = "$date $time $band $mode";
-    $log{ $call } = $qsoinfo;
+    push (@{$log{$call}}, $qsoinfo);
+    #$log{ $call } = $qsoinfo;
     $c++;
 }
 print "Loaded $c records.\n";
 
+foreach my $rec (@{$log { $call }}) {
+    print "$rec \n";
+}
 #my ($key, $value);
 #while (($key, $value) = each %log) {
 #    print "$key $value\n";
 #}
 #print Dumper(%log);
-print $log{'KY4K'} . "\n";
+print "(@{$log{ 'N9JCA' }, $qsoinfo) . "\n";
 
