@@ -16,6 +16,7 @@ while ($line = <$fh_log>) {
     #print "$date $time $call $band $mode \n";
     #Load the hash
     $qsoinfo = "$date $time $band $mode";
+    $log{$call} = [] unless ($log{$call});  #Create empty array unless already done.
     push (@{$log{$call}}, $qsoinfo);
     #$log{ $call } = $qsoinfo;
     $c++;
@@ -30,5 +31,5 @@ foreach my $rec (@{$log { $call }}) {
 #    print "$key $value\n";
 #}
 #print Dumper(%log);
-print "(@{$log{ 'N9JCA' }, $qsoinfo) . "\n";
+print "(@{$log{ 'N9JCA' }, $qsoinfo)" . "\n";
 
